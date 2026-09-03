@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CompanyAbout from './components/CompanyAbout';
@@ -16,6 +16,37 @@ export default function App() {
   const [currency, setCurrency] = useState('RWF');
   const [seatsLeft, setSeatsLeft] = useState(15);
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
+
+  // Handle path-based deep linking for SEO and direct URLs
+  useEffect(() => {
+    const pathToIdMap = {
+      '/about': 'about',
+      '/services': 'services',
+      '/enterprise': 'services',
+      '/bootcamp': 'programs',
+      '/programs': 'programs',
+      '/curriculum': 'curriculum',
+      '/syllabus': 'curriculum',
+      '/simulator': 'simulator',
+      '/instructors': 'instructors',
+      '/faculty': 'instructors',
+      '/faq': 'faq',
+      '/certificate': 'certificate'
+    };
+
+    const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+    const targetId = pathToIdMap[pathname] || (window.location.hash ? window.location.hash.substring(1) : null);
+
+    if (targetId) {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Multi-Currency Converter
   const formatPrice = (amountRWF) => {
