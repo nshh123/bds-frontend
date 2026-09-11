@@ -121,7 +121,7 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
     },
     voice: {
       title: 'Voice Notes & Multimodal',
-      desc: 'Send voice messages while driving or on the move; Gemini 2.0 Flash processes them seamlessly.',
+      desc: 'Send voice messages while driving or on the move; Gemini processes them seamlessly.',
       messages: [
         {
           sender: 'user',
@@ -196,7 +196,7 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
               Baza AI: The Autonomous WhatsApp Assistant
             </h2>
             <p className="baza-subtitle">
-              A 24/7 personal assistant powered by Google Gemini 2.0 Flash function calling, proactive long-term memory, atomic reminder scheduling, and conversational task management.
+              A 24/7 personal assistant powered by Google Gemini function calling, proactive long-term memory, atomic reminder scheduling, and conversational task management.
             </p>
           </div>
 
@@ -293,7 +293,7 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
                       </div>
                       <div className="chat-meta">
                         <div className="contact-name">Baza AI Assistant</div>
-                        <div className="contact-status">online • Gemini 2.0 Flash</div>
+                        <div className="contact-status">online • Powered by Gemini</div>
                       </div>
                     </div>
                     <div className="chat-badge-verified">
@@ -388,7 +388,7 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
                 </div>
               </div>
               <div className="simulator-caption">
-                <Zap size={14} className="text-cyan" />
+                <Zap size={14} className="caption-icon text-cyan" />
                 <span><strong>Live Interaction Scenario:</strong> {scenarios[activeScenario].desc}</span>
               </div>
             </div>
@@ -424,7 +424,7 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
                 <div className="arch-icon-wrap icon-gemini">
                   <Cpu size={22} />
                 </div>
-                <h4>Gemini 2.0 Flash</h4>
+                <h4>Google Gemini</h4>
                 <p>
                   Ultra-low latency reasoning with native function calling: automatically chooses when to trigger memory, reminders, or tasks.
                 </p>
@@ -490,7 +490,7 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
                 <div className="pipeline-icon">
                   <ShieldCheck size={28} className="text-indigo" />
                 </div>
-                <div className="pipeline-status status-alpha">In Private Alpha</div>
+                <div className="pipeline-status status-soon">Coming Q3 2026</div>
               </div>
               <h3 className="pipeline-title font-heading">Baza Enterprise Knowledge Agent</h3>
               <p className="pipeline-desc">

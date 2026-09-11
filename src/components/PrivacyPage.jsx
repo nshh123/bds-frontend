@@ -102,7 +102,7 @@ export default function PrivacyPage({ onBackToHome }) {
                   <strong>Meta Platforms, Inc. (WhatsApp Cloud API):</strong> Used for secure transmission, routing, and delivery of WhatsApp messages and audio notes. Subject to Meta's Data Policy.
                 </li>
                 <li>
-                  <strong>Google Cloud / Google AI (Gemini 2.0 Flash API):</strong> Used for real-time natural language reasoning, audio transcription, and tool execution. <em>We do not permit your personal conversations or audio to be used for training Google's public models.</em>
+                  <strong>Google Cloud / Google AI (Gemini API):</strong> Used for real-time natural language reasoning, audio transcription, and tool execution. <em>We do not permit your personal conversations or audio to be used for training Google's public models.</em>
                 </li>
                 <li>
                   <strong>Supabase, Inc. (PostgreSQL Cloud Database):</strong> Encrypted database hosting used to securely store user profiles, memories, tasks, and reminder records.
