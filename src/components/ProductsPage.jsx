@@ -148,7 +148,7 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
   const handleWhatsAppAction = () => {
     // Open WhatsApp with friendly introductory message
     const message = encodeURIComponent("Hello Baza AI! I'm interested in trying out the Baza AI WhatsApp assistant.");
-    window.open(`https://wa.me/250788123456?text=${message}`, '_blank');
+    window.open(`https://wa.me/250782278790?text=${message}`, '_blank');
   };
 
   return (
