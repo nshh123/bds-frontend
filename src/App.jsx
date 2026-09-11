@@ -19,23 +19,32 @@ export default function App() {
 
   // Handle path-based deep linking for SEO and direct URLs
   useEffect(() => {
-    const pathToIdMap = {
-      '/about': 'about',
-      '/services': 'services',
-      '/enterprise': 'services',
-      '/bootcamp': 'programs',
-      '/programs': 'programs',
-      '/curriculum': 'curriculum',
-      '/syllabus': 'curriculum',
-      '/simulator': 'simulator',
-      '/instructors': 'instructors',
-      '/faculty': 'instructors',
-      '/faq': 'faq',
-      '/certificate': 'certificate'
+    const pathToMetaMap = {
+      '/about': { id: 'about', title: 'About Us | BazaDevSpace' },
+      '/services': { id: 'services', title: 'Enterprise AI Services | BazaDevSpace' },
+      '/enterprise': { id: 'services', title: 'Enterprise AI Services | BazaDevSpace' },
+      '/bootcamp': { id: 'programs', title: 'AI Bootcamp & Programs | BazaDevSpace' },
+      '/programs': { id: 'programs', title: 'AI Bootcamp & Programs | BazaDevSpace' },
+      '/curriculum': { id: 'curriculum', title: 'Curriculum & Syllabus | BazaDevSpace' },
+      '/syllabus': { id: 'curriculum', title: 'Curriculum & Syllabus | BazaDevSpace' },
+      '/simulator': { id: 'simulator', title: 'Autonomous Loop Simulator | BazaDevSpace' },
+      '/instructors': { id: 'instructors', title: 'Mentors & Instructors | BazaDevSpace' },
+      '/faculty': { id: 'instructors', title: 'Mentors & Instructors | BazaDevSpace' },
+      '/faq': { id: 'faq', title: 'Frequently Asked Questions | BazaDevSpace' },
+      '/certificate': { id: 'certificate', title: 'Certified AI Loop Engineer | BazaDevSpace' }
     };
 
     const pathname = window.location.pathname.replace(/\/$/, '') || '/';
-    const targetId = pathToIdMap[pathname] || (window.location.hash ? window.location.hash.substring(1) : null);
+    const routeConfig = pathToMetaMap[pathname];
+    const targetId = routeConfig ? routeConfig.id : (window.location.hash ? window.location.hash.substring(1) : null);
+
+    if (routeConfig) {
+      document.title = routeConfig.title;
+      const canonical = document.querySelector("link[rel='canonical']");
+      if (canonical) {
+        canonical.setAttribute('href', `https://bazadevspace.company${pathname}`);
+      }
+    }
 
     if (targetId) {
       const timer = setTimeout(() => {
