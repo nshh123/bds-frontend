@@ -108,7 +108,16 @@ export default function Footer({ onNavigate }) {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 BazaDevSpace. All rights reserved.</p>
+          <p>
+            © 2026 BazaDevSpace. All rights reserved.
+            <a 
+              href="/privacy" 
+              onClick={(e) => handleNavClick(e, 'privacy')} 
+              style={{ color: 'inherit', textDecoration: 'underline', marginLeft: '16px', fontSize: '0.85rem' }}
+            >
+              Privacy Policy
+            </a>
+          </p>
           <button className="back-to-top" onClick={scrollToTop}>
             <span>Back to Top</span>
             <ArrowUp size={16} />

@@ -1,0 +1,258 @@
+/* Privacy Page Styles */
+.privacy-page {
+  padding-top: 80px;
+  background-color: var(--bg-soft);
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+.privacy-top-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 0;
+  margin-bottom: 40px;
+}
+
+.privacy-top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.privacy-container {
+  max-width: 920px;
+}
+
+.privacy-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 50px 56px;
+}
+
+@media (max-width: 768px) {
+  .privacy-card {
+    padding: 30px 20px;
+  }
+}
+
+.privacy-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 28px;
+  margin-bottom: 36px;
+}
+
+.privacy-tag {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+.privacy-title {
+  font-size: 2.5rem;
+  color: var(--text-main);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.privacy-effective-date {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.privacy-body {
+  color: var(--text-body);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.privacy-section {
+  margin-bottom: 38px;
+}
+
+.privacy-section h2 {
+  font-size: 1.45rem;
+  color: var(--text-main);
+  margin-bottom: 14px;
+}
+
+.privacy-section p {
+  margin-bottom: 14px;
+}
+
+.privacy-section ul,
+.privacy-section ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.privacy-section li {
+  line-height: 1.6;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+@media (max-width: 640px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-box {
+  background: var(--bg-soft);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.info-box-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.info-box-header h4 {
+  font-size: 1.02rem;
+  color: var(--text-main);
+}
+
+.info-box p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Colors */
+.text-blue { color: var(--primary-blue); }
+.text-indigo { color: var(--accent-indigo); }
+.text-emerald { color: var(--accent-emerald); }
+.text-cyan { color: #0284c7; }
+
+/* Callout Box */
+.callout-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.callout-box strong {
+  color: #065f46;
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.callout-box p {
+  color: #047857;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* Highlight Deletion Box */
+.highlight-deletion {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+
+.deletion-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.deletion-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #fee2e2;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.deletion-details h4 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.deletion-details code {
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-code);
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.deletion-details a {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Contact Card */
+.contact-card {
+  background: var(--bg-soft);
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 18px 22px;
+  margin-top: 12px;
+}
+
+.contact-card p {
+  margin-bottom: 6px;
+  font-size: 0.96rem;
+}
+
+.contact-card p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-card a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}

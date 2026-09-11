@@ -12,10 +12,14 @@ import FAQ from './components/FAQ';
 import EnrollmentModal from './components/EnrollmentModal';
 import Footer from './components/Footer';
 import ProductsPage from './components/ProductsPage';
+import PrivacyPage from './components/PrivacyPage';
 
 const PATH_TO_META_MAP = {
   '/': { title: 'BazaDevSpace | Advanced AI Coding & Loop Engineering Bootcamp' },
   '/products': { title: 'Products & Baza AI | BazaDevSpace' },
+  '/privacy': { title: 'Privacy Policy - Baza AI | BazaDevSpace' },
+  '/privacy-policy': { title: 'Privacy Policy - Baza AI | BazaDevSpace' },
+  '/baza-ai/privacy': { title: 'Privacy Policy - Baza AI | BazaDevSpace' },
   '/about': { id: 'about', title: 'About Us | BazaDevSpace' },
   '/services': { id: 'services', title: 'Enterprise AI Services | BazaDevSpace' },
   '/enterprise': { id: 'services', title: 'Enterprise AI Services | BazaDevSpace' },
@@ -36,23 +40,26 @@ export default function App() {
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
   const [currentView, setCurrentView] = useState(() => {
     const path = window.location.pathname.replace(/\/$/, '') || '/';
+    if (path === '/privacy' || path === '/privacy-policy' || path === '/baza-ai/privacy' || window.location.hash === '#privacy') {
+      return 'privacy';
+    }
     return path === '/products' || window.location.hash === '#products' ? 'products' : 'home';
   });
 
   const navigateTo = useCallback((view, targetId = null) => {
     setCurrentView(view);
-    const newPath = view === 'products' ? '/products' : (targetId ? `/#${targetId}` : '/');
+    const newPath = view === 'products' ? '/products' : (view === 'privacy' ? '/privacy' : (targetId ? `/#${targetId}` : '/'));
     
-    if (window.location.pathname !== (view === 'products' ? '/products' : '/')) {
+    if (window.location.pathname !== (view === 'products' ? '/products' : (view === 'privacy' ? '/privacy' : '/'))) {
       window.history.pushState({ view, targetId }, '', newPath);
     }
 
-    const meta = PATH_TO_META_MAP[view === 'products' ? '/products' : '/'];
+    const meta = PATH_TO_META_MAP[view === 'products' ? '/products' : (view === 'privacy' ? '/privacy' : '/')];
     if (meta) {
       document.title = meta.title;
     }
 
-    if (view === 'products') {
+    if (view === 'products' || view === 'privacy') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (targetId) {
       setTimeout(() => {
@@ -70,10 +77,18 @@ export default function App() {
   useEffect(() => {
     const handlePopState = () => {
       const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+      const isPrivacy = pathname === '/privacy' || pathname === '/privacy-policy' || pathname === '/baza-ai/privacy' || window.location.hash === '#privacy';
       const isProd = pathname === '/products' || window.location.hash === '#products';
-      setCurrentView(isProd ? 'products' : 'home');
 
-      const routeConfig = PATH_TO_META_MAP[pathname] || (isProd ? PATH_TO_META_MAP['/products'] : PATH_TO_META_MAP['/']);
+      if (isPrivacy) {
+        setCurrentView('privacy');
+      } else if (isProd) {
+        setCurrentView('products');
+      } else {
+        setCurrentView('home');
+      }
+
+      const routeConfig = PATH_TO_META_MAP[pathname] || (isPrivacy ? PATH_TO_META_MAP['/privacy'] : (isProd ? PATH_TO_META_MAP['/products'] : PATH_TO_META_MAP['/']));
       if (routeConfig) {
         document.title = routeConfig.title;
       }
@@ -93,7 +108,7 @@ export default function App() {
       }
     }
 
-    if (targetId && pathname !== '/products') {
+    if (targetId && pathname !== '/products' && pathname !== '/privacy' && pathname !== '/privacy-policy' && pathname !== '/baza-ai/privacy') {
       const timer = setTimeout(() => {
         const el = document.getElementById(targetId);
         if (el) {
@@ -141,7 +156,9 @@ export default function App() {
         onNavigate={navigateTo}
       />
 
-      {currentView === 'products' ? (
+      {currentView === 'privacy' ? (
+        <PrivacyPage onBackToHome={() => navigateTo('home')} />
+      ) : currentView === 'products' ? (
         <ProductsPage 
           onBackToHome={() => navigateTo('home')}
           onOpenEnroll={() => setIsEnrollOpen(true)}
