@@ -10,6 +10,7 @@ import {
   ArrowRight, 
   ArrowLeft,
   ChevronRight, 
+  Layers,
   Database,
   Cpu,
   Bot,
@@ -396,6 +397,10 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
           {/* Architecture Spotlight */}
           <div className="baza-architecture-box corp-card">
             <div className="arch-header">
+              <div className="arch-tag">
+                <Layers size={14} />
+                <span>Production Architecture</span>
+              </div>
               <h3 className="arch-title font-heading">Under the Hood of Baza AI</h3>
               <p className="arch-desc">
                 Engineered for maximum uptime and zero latency on top of battle-tested free-tier services.
@@ -463,9 +468,11 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
 
           <div className="pipeline-grid">
             <div className="pipeline-card corp-card">
-              <div className="pipeline-status status-soon">Coming Q3 2026</div>
-              <div className="pipeline-icon">
-                <Zap size={28} className="text-cyan" />
+              <div className="pipeline-card-top">
+                <div className="pipeline-icon">
+                  <Zap size={28} className="text-cyan" />
+                </div>
+                <div className="pipeline-status status-soon">Coming Q3 2026</div>
               </div>
               <h3 className="pipeline-title font-heading">Baza Loop Studio</h3>
               <p className="pipeline-desc">
@@ -479,9 +486,11 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
             </div>
 
             <div className="pipeline-card corp-card">
-              <div className="pipeline-status status-alpha">In Private Alpha</div>
-              <div className="pipeline-icon">
-                <ShieldCheck size={28} className="text-indigo" />
+              <div className="pipeline-card-top">
+                <div className="pipeline-icon">
+                  <ShieldCheck size={28} className="text-indigo" />
+                </div>
+                <div className="pipeline-status status-alpha">In Private Alpha</div>
               </div>
               <h3 className="pipeline-title font-heading">Baza Enterprise Knowledge Agent</h3>
               <p className="pipeline-desc">
@@ -495,9 +504,11 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
             </div>
 
             <div className="pipeline-card corp-card">
-              <div className="pipeline-status status-concept">Research & Concept</div>
-              <div className="pipeline-icon">
-                <Cpu size={28} className="text-emerald" />
+              <div className="pipeline-card-top">
+                <div className="pipeline-icon">
+                  <Cpu size={28} className="text-emerald" />
+                </div>
+                <div className="pipeline-status status-concept">Research & Concept</div>
               </div>
               <h3 className="pipeline-title font-heading">Baza Agentic Code Reviewer</h3>
               <p className="pipeline-desc">
