@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  Sparkles, 
   MessageSquare, 
   Clock, 
   Brain, 
@@ -11,7 +10,6 @@ import {
   ArrowRight, 
   ArrowLeft,
   ChevronRight, 
-  Layers,
   Database,
   Cpu,
   Bot,
@@ -161,10 +159,6 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
             <ArrowLeft size={16} />
             <span>Back to Academy & Services</span>
           </button>
-          <div className="suite-tag">
-            <span className="pulsing-dot"></span>
-            <span>BazaDevSpace Production Suite</span>
-          </div>
         </div>
       </div>
 
@@ -172,10 +166,6 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
       <section className="products-hero">
         <div className="container">
           <div className="products-hero-content">
-            <div className="badge badge-indigo">
-              <Sparkles size={14} />
-              <span>Flagship AI Software & Agents</span>
-            </div>
             <h1 className="products-hero-title font-heading">
               Autonomous AI Products <br />
               <span className="text-gradient">Engineered for Daily Action.</span>
@@ -201,10 +191,6 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
       <section id="baza-ai" className="baza-ai-section">
         <div className="container">
           <div className="baza-ai-header">
-            <div className="baza-badge">
-              <span className="whatsapp-dot"></span>
-              <span>Available Now on WhatsApp</span>
-            </div>
             <h2 className="baza-title font-heading">
               Baza AI: The Autonomous WhatsApp Assistant
             </h2>
@@ -410,10 +396,6 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
           {/* Architecture Spotlight */}
           <div className="baza-architecture-box corp-card">
             <div className="arch-header">
-              <div className="arch-tag">
-                <Layers size={14} />
-                <span>Production Architecture</span>
-              </div>
               <h3 className="arch-title font-heading">Under the Hood of Baza AI</h3>
               <p className="arch-desc">
                 Engineered for maximum uptime and zero latency on top of battle-tested free-tier services.
@@ -473,10 +455,6 @@ export default function ProductsPage({ onBackToHome, onOpenEnroll }) {
       <section id="pipeline" className="pipeline-section">
         <div className="container">
           <div className="section-header">
-            <div className="badge badge-emerald">
-              <Sparkles size={14} />
-              <span>Baza Labs & Pipeline</span>
-            </div>
             <h2 className="font-heading">More Products in Development</h2>
             <p>
               Explore the upcoming AI agent platforms and developer tools currently being developed by the BazaDevSpace engineering team.
