@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Building2, Sparkles, Menu, X, Globe } from 'lucide-react';
+import { Sparkles, Menu, X, Globe } from 'lucide-react';
 import './Navbar.css';
 
-export default function Navbar({ onOpenEnroll, currency, setCurrency, seatsLeft }) {
+export default function Navbar({ onOpenEnroll, currency, setCurrency, seatsLeft, currentView = 'home', onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
@@ -26,14 +26,31 @@ export default function Navbar({ onOpenEnroll, currency, setCurrency, seatsLeft 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [mobileMenuOpen]);
 
-  const handleNavClick = () => {
+  const handleNavClick = (targetId = null) => {
     setMobileMenuOpen(false);
+    if (targetId && onNavigate) {
+      onNavigate('home', targetId);
+    }
+  };
+
+  const handleHomeLinkClick = (e, targetId) => {
+    if (currentView !== 'home' && onNavigate) {
+      e.preventDefault();
+      onNavigate('home', targetId);
+    }
   };
 
   return (
     <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''} ${navHidden ? 'navbar-hidden' : ''}`}>
       <div className="container navbar-container">
-        <a href="#" className="navbar-logo">
+        <a 
+          href="/" 
+          className="navbar-logo"
+          onClick={(e) => {
+            e.preventDefault();
+            if (onNavigate) onNavigate('home');
+          }}
+        >
           <div className="logo-badge">
             <img src="/baza_logo_badge.webp" alt="BazaDevSpace Logo" className="logo-img" />
           </div>
@@ -45,12 +62,23 @@ export default function Navbar({ onOpenEnroll, currency, setCurrency, seatsLeft 
 
         {/* Streamlined Desktop Links */}
         <nav className="navbar-links desktop-only">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#programs">Bootcamp</a>
-          <a href="#simulator">Simulator</a>
-          <a href="#instructors">Instructors</a>
-          <a href="#faq">FAQ</a>
+          <a 
+            href="#products" 
+            className={currentView === 'products' ? 'active-nav-link' : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              if (onNavigate) onNavigate('products');
+            }}
+          >
+            Products
+            <span className="nav-new-badge">Baza AI</span>
+          </a>
+          <a href="#about" onClick={(e) => handleHomeLinkClick(e, 'about')}>About</a>
+          <a href="#services" onClick={(e) => handleHomeLinkClick(e, 'services')}>Services</a>
+          <a href="#programs" onClick={(e) => handleHomeLinkClick(e, 'programs')}>Bootcamp</a>
+          <a href="#simulator" onClick={(e) => handleHomeLinkClick(e, 'simulator')}>Simulator</a>
+          <a href="#instructors" onClick={(e) => handleHomeLinkClick(e, 'instructors')}>Instructors</a>
+          <a href="#faq" onClick={(e) => handleHomeLinkClick(e, 'faq')}>FAQ</a>
         </nav>
 
         {/* Desktop Actions */}
@@ -86,14 +114,25 @@ export default function Navbar({ onOpenEnroll, currency, setCurrency, seatsLeft 
       {mobileMenuOpen && (
         <div className="mobile-drawer">
           <nav className="mobile-drawer-links">
-            <a href="#about" onClick={handleNavClick}>About Us</a>
-            <a href="#mission" onClick={handleNavClick}>Mission & Vision</a>
-            <a href="#services" onClick={handleNavClick}>Enterprise Services</a>
-            <a href="#programs" onClick={handleNavClick}>Flagship Bootcamp</a>
-            <a href="#simulator" onClick={handleNavClick}>Loop Simulator</a>
-            <a href="#curriculum" onClick={handleNavClick}>Syllabus & Curriculum</a>
-            <a href="#instructors" onClick={handleNavClick}>Instructors</a>
-            <a href="#faq" onClick={handleNavClick}>FAQ</a>
+            <a 
+              href="#products" 
+              className={currentView === 'products' ? 'active-nav-link' : ''}
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                if (onNavigate) onNavigate('products');
+              }}
+            >
+              ✨ Products (Baza AI)
+            </a>
+            <a href="#about" onClick={() => handleNavClick('about')}>About Us</a>
+            <a href="#mission" onClick={() => handleNavClick('mission')}>Mission & Vision</a>
+            <a href="#services" onClick={() => handleNavClick('services')}>Enterprise Services</a>
+            <a href="#programs" onClick={() => handleNavClick('programs')}>Flagship Bootcamp</a>
+            <a href="#simulator" onClick={() => handleNavClick('simulator')}>Loop Simulator</a>
+            <a href="#curriculum" onClick={() => handleNavClick('curriculum')}>Syllabus & Curriculum</a>
+            <a href="#instructors" onClick={() => handleNavClick('instructors')}>Instructors</a>
+            <a href="#faq" onClick={() => handleNavClick('faq')}>FAQ</a>
           </nav>
 
           <div className="mobile-drawer-actions">

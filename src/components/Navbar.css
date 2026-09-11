@@ -86,10 +86,30 @@
   font-size: 0.95rem;
   transition: color var(--transition-normal);
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
 }
 
 .navbar-links a:hover {
   color: var(--primary-blue);
+}
+
+.navbar-links a.active-nav-link {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.nav-new-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 2px 6px;
+  border-radius: 99px;
+  margin-left: 5px;
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .navbar-actions {

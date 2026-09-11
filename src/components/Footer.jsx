@@ -2,9 +2,16 @@ import React from 'react';
 import { Cpu, Mail, Globe, ArrowUp, Code, MessageSquare, Share2 } from 'lucide-react';
 import './Footer.css';
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavClick = (e, view, targetId) => {
+    if (onNavigate) {
+      e.preventDefault();
+      onNavigate(view, targetId);
+    }
   };
 
   return (
@@ -13,7 +20,11 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand Info */}
           <div className="footer-brand-col">
-            <a href="#" className="navbar-logo">
+            <a 
+              href="/" 
+              className="navbar-logo"
+              onClick={(e) => handleNavClick(e, 'home')}
+            >
               <div className="logo-badge">
                 <img src="/baza_logo_badge.webp" alt="BazaDevSpace Logo" className="logo-img" />
               </div>
@@ -52,12 +63,22 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-col-title font-heading">Navigation</h4>
             <ul className="footer-links">
-              <li><a href="#overview">Overview</a></li>
-              <li><a href="#simulator">Loop Simulator</a></li>
-              <li><a href="#curriculum">Curriculum</a></li>
-              <li><a href="#bootcamp">Bootcamp Card</a></li>
-              <li><a href="#certificate">Certificate</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li>
+                <a 
+                  href="#products" 
+                  onClick={(e) => handleNavClick(e, 'products')}
+                  style={{ color: 'var(--primary-blue)', fontWeight: '700' }}
+                >
+                  ✨ Products (Baza AI)
+                </a>
+              </li>
+              <li><a href="#about" onClick={(e) => handleNavClick(e, 'home', 'about')}>About Us</a></li>
+              <li><a href="#services" onClick={(e) => handleNavClick(e, 'home', 'services')}>Services</a></li>
+              <li><a href="#simulator" onClick={(e) => handleNavClick(e, 'home', 'simulator')}>Loop Simulator</a></li>
+              <li><a href="#curriculum" onClick={(e) => handleNavClick(e, 'home', 'curriculum')}>Curriculum</a></li>
+              <li><a href="#programs" onClick={(e) => handleNavClick(e, 'home', 'programs')}>Bootcamp</a></li>
+              <li><a href="#certificate" onClick={(e) => handleNavClick(e, 'home', 'certificate')}>Certificate</a></li>
+              <li><a href="#faq" onClick={(e) => handleNavClick(e, 'home', 'faq')}>FAQ</a></li>
             </ul>
           </div>
 
