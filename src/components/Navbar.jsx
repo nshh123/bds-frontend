@@ -123,7 +123,7 @@ export default function Navbar({ onOpenEnroll, currency, setCurrency, seatsLeft,
                 if (onNavigate) onNavigate('products');
               }}
             >
-              ✨ Products (Baza AI)
+              Products (Baza AI)
             </a>
             <a href="#about" onClick={() => handleNavClick('about')}>About Us</a>
             <a href="#mission" onClick={() => handleNavClick('mission')}>Mission & Vision</a>
